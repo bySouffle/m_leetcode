@@ -9,7 +9,7 @@ class Solution:
         """
         cnt = 0
         
-        for i in range(len(arr)*( len(arr) -1 )):
+        for i in range(len(arr)):
 
 
             if arr[0] > arr[1]:
