@@ -21,7 +21,7 @@ class RandomizedCollection:
         """
         self.m_list.remove(val)
 
-
+    
     def getRandom(self) -> int:
         """
         Get a random element from the collection.
@@ -29,12 +29,6 @@ class RandomizedCollection:
 
         return random.choice(self.m_list)
 
-        # random_list = []
-
-        # lens = len(self.m_list)
-        # set_list = set(self.m_list)
-        # for i in set_list:
-        #     random_list.append( self.m_list.count(i)/len(self.m_list) )
 
 
 
