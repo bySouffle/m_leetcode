@@ -29,24 +29,56 @@ class Solution:
         2. 单循环判断   X
         
         """
-        ret_nums = []    
+        ret = []
+        n = 0
 
-        ret = [nums[0]]
-        for i in range(1,len(nums)-1):
-            if nums[i]+1 == nums[i+1]:
-                ret.append(nums[i+1])
+        # while 循环 用if 判断条件退出循环
+
+        while n < len(nums):    # 范围
+            if n+1 <len(nums) and nums[n] + 1 == nums[n+1]: # 上一个等于下一个 给一个index 标记开始元素
+                m = n
+                while n+1 <len(nums) and nums[n] + 1 == nums[n+1]:  # 再来一个循环找出边界
+                    n += 1
+                ret.append("{}->{}".format(nums[m],nums[n]))    # 输出
+                
+            else:   # 下一个不等于上一个加 1
+                ret.append(str(nums[n]))    # 直接输出
+            n += 1
+        return ret
+
+
+
+
+        n = 0
+        ret = []
+
+        while n < len(nums):
+            if n+1 < len(nums) and nums[n]+1 == nums[n+1]:
+                m = n
+                while n+1 < len(nums) and nums[n]+1 == nums[n+1]:
+                    n+=1
+                ret.append("{}->{}".format(nums[m],nums[n]))
+
             else:
-                if len(ret) > 1:
-                    ret_nums.append("{}->{}".format(ret[0],ret[-1]))
-                if len(ret) == 1:
-                    ret_nums.append("{}".format(ret[0]))
-                ret= [nums[i]]
+                ret.append("{}".format(n))
+            
+            n+=1
+            
 
-        print(ret_nums)      
+        n = 0
+        ret = []
+        while n+1 < len(nums):
+            if n+1 < len(nums) and nums[n]+1 == nums[n+1]:
+                m = n
+                while n+1 < len(nums) and nums[n]+1 == nums[n+1]:
+                    n+=1
+                ret.append("{}->{}",format(nums[m],nums[n]))
 
-
-
+            else:
+                ret.append("{}".format(nums[n]))
+                
+            n+=1
 
 if __name__ =="__main__":
     s= Solution()
-    s.summaryRanges([0,2,3,4,6,8,9])
+    print(s.summaryRanges([0,1,2,4,5,7]) )
